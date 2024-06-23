@@ -1,19 +1,41 @@
-#ifndef INSCRIPCION_H
-#define INSCRIPCION_H
-#include<iostream>
+#ifndef INSCRIPCION_H_
+#define INSCRIPCION_H_
 
-using namespace std;
+#include "date.h"
+#include "Curso.h"
+#include "Usuario.h"
+#include "Estudiante.h"
+#include "DeCompletar.h"
+#include "DeTraduccion.h"
 
-class Inscripcion {
-public:
-	Inscripcion();
-	Inscripcion(const Inscripcion &arg);
-	~Inscripcion();
+class Curso;
+class Estudiante;
+
+class Inscripcion : public ICollectible {
 private:
-	// fechaInsc;
+	date* fechaInsc;
 	float progresoCurso;
 	float progresoLeccion;
+	Curso* curso;
+	Estudiante* estudiante;
+	Leccion* leccionActual;
+	IDictionary* ejerciciosAprobados;
+public:
+	Inscripcion(Estudiante* est, Curso* crs);
+	virtual ~Inscripcion();
+	std::string getFechaInscToString();
+	float getProgresoCurso();
+	float getProgresoLeccion();
+	void setProgresoCurso(float n);
+	void setProgresoLeccion(float n);
+	std::string getNicknameEstudiante();
+	std::string getNombreCurso();
+	int getIdLeccionActual();
+	bool aprobado();
+	std::set<int> listarEjerciciosPendientes();
+	bool resolverEjercicioDeTraduccion(std::string solucion, int idEjercicio);
+	bool resolverEjercicioDeCompletar(std::vector<std::string> solucion, int idEjercicio);
+	DT_DataProblemaEjercicio* getDataProblemaEjercicio(int idEjercicio);
 };
 
-#endif
-
+#endif /* INSCRIPCION_H_ */

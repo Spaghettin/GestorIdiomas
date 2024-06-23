@@ -1,7 +1,10 @@
 #include<iostream>
 #include "I_Ctrl.h"
 #include "Fabrica.h"
-using namespace std;
+
+//No van
+#include "DT_DataEstudiante.h"
+#include "DT_DataProfesor.h"
 
 int main (int argc, char *argv[]) {
 	
@@ -33,16 +36,18 @@ int main (int argc, char *argv[]) {
 				cin>>res;
 			if(res == 'y'){
 				DT_DataEstudiante* datosEst;
-				string nombre, descripcion, nickname, paisResidencia;
+				std::string nombre, descripcion, nickname, paisResidencia, contrasena;
 				int ano, mes, dia;
 				date* fechaNacimiento;
 				
-				cout<<"Ingrese nombre del estudiante que se ingresa: ";
-				cin>>nombre;
-				cout<<"Ingrese descripcion del estudiante que se ingresa: ";
-				cin>>descripcion;
 				cout<<"Ingrese nickname del estudiante que se ingresa: ";
 				cin>>nickname;
+				cout<<"Ingrese nombre del estudiante que se ingresa: ";
+				cin>>nombre;
+				cout<<"Ingrese contrasena del estudiante que se ingresa: ";
+				cin>>contrasena;
+				cout<<"Ingrese descripcion del estudiante que se ingresa: ";
+				cin>>descripcion;
 				cout<<"Ingrese pais de residencia del estudiante que se ingresa: ";
 				cin>>paisResidencia;
 				
@@ -55,12 +60,14 @@ int main (int argc, char *argv[]) {
 				
 				fechaNacimiento = new date(ano, mes, dia);
 				
-				datosEst = new DT_DataEstudiante(nombre, descripcion, nickname, paisResidencia, fechaNacimiento);
+				datosEst = new DT_DataEstudiante(nickname, nombre, contrasena, descripcion, fechaNacimiento, paisResidencia);
 				
 				con->crearE(datosEst);
 			}else{
-				//con->crearP();
-				con->listarIdiomas();
+				DT_DataProfesor* datosProf = new DT_DataProfesor("Pedroo", "Pedro", "123", "si");
+				con->crearP(datosProf, "Liceo 1");
+				
+				//con->listarIdiomas();
 				do{
 					string nombre;
 					cout<<"Ingrese nombre del idioma que se especializa: ";
@@ -68,7 +75,7 @@ int main (int argc, char *argv[]) {
 					con->seleccionaIdioma(nombre);
 					cout<<"Quiere seguir agregando idiomas? y/n: ";
 					cin>>res;
-				}while(res != 'y');
+				}while(res == 'y');
 			}
 				break;
 			}

@@ -1,19 +1,21 @@
-#ifndef DETRADUCCION_H
-#define DETRADUCCION_H
+
+#ifndef DETRADUCCION_H_
+#define DETRADUCCION_H_
+
 #include "Ejercicio.h"
-#include<iostream>
+#include "string"
 
-using namespace std;
-
-class DeTraduccion : protected Ejercicio {
+class DeTraduccion : public Ejercicio {
+private:
+	std::string solucion;
+	std::string fraseATraducir;
 public:
 	DeTraduccion();
-	DeTraduccion(const DeTraduccion &arg);
-	~DeTraduccion();
-private:
-	string solucion;
-	string fraseATraducir;
+	DeTraduccion(std::string descripcionEj, std::string frase, std::string sol);
+	virtual ~DeTraduccion();
+	std::string getProblema();
+	std::string getSolucion();
+	bool resolver(std::string sol);
 };
 
-#endif
-
+#endif /* DETRADUCCION_H_ */

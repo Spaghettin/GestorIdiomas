@@ -10,7 +10,7 @@ public:
 	DT_DataEstudianteCurso(const DT_DataEstudianteCurso &arg);
 	~DT_DataEstudianteCurso();
 private:
-	string nombreEstudiante;
+	std::string nombreEstudiante;
 	date fechaIns;
 };
 

@@ -1,17 +1,19 @@
-#ifndef IDIOMA_H
-#define IDIOMA_H
-#include<iostream>
+#ifndef IDIOMA_H_
+#define IDIOMA_H_
 
-using namespace std;
+#include "string"
+#include "iostream"
+#include "IDictionary.h"
 
-class Idioma {
+class Idioma : public ICollectible {
+private:
+	std::string nombreIdioma;
 public:
 	Idioma();
-	Idioma(const Idioma &arg);
-	~Idioma();
-private:
-	string nombreIdioma;
+	Idioma(std::string nombreIdioma);
+	virtual ~Idioma();
+	std::string getNombre();
+	Idioma* altaIdioma(std::string nombreIdioma);
 };
 
-#endif
-
+#endif /* IDIOMA_H_ */

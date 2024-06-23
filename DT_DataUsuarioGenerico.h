@@ -11,8 +11,8 @@ public:
 	DT_DataUsuarioGenerico(const DT_DataUsuarioGenerico &arg);
 	~DT_DataUsuarioGenerico();
 private:
-	string nickname;
-	string descripcion;
+	std::string nickname;
+	std::string descripcion;
 	DT_DataInfoEstudiante datosEstudiante;
 	DT_DataInfoProfesor datosProfesor;
 };

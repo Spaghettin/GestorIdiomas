@@ -1,14 +1,37 @@
+/*
+* DeTraduccion.cpp
+*
+*  Created on: Jun 17, 2024
+*      Author: mat
+*/
+
 #include "DeTraduccion.h"
 
 DeTraduccion::DeTraduccion() {
-	
+	this->idEjercicio = ++(this->cantInstancias);
 }
 
-DeTraduccion::DeTraduccion(const DeTraduccion &arg) {
-	
+DeTraduccion::DeTraduccion(std::string descripcionEj, std::string frase, std::string sol) {
+	this->descripcion = descripcionEj;
+	this->fraseATraducir = frase;
+	this->solucion = sol;
+	this->idEjercicio = ++(this->cantInstancias);
 }
+
 
 DeTraduccion::~DeTraduccion() {
-	
+	// TODO Auto-generated destructor stub
+}
+
+std::string DeTraduccion::getProblema() {
+	return this->fraseATraducir;
+}
+
+std::string DeTraduccion::getSolucion() {
+	return this->solucion;
+}
+
+bool DeTraduccion::resolver(std::string sol) {
+	return (this->getSolucion() == sol);
 }
 

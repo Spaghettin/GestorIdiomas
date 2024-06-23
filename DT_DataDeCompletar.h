@@ -10,9 +10,9 @@ public:
 	DT_DataDeCompletar(const DT_DataDeCompletar &arg);
 	~DT_DataDeCompletar();
 private:
-	set<string> solucion;
-	string fraseIncompleta;
-	string descripcion;
+	set<std::string> solucion;
+	std::string fraseIncompleta;
+	std::string descripcion;
 };
 
 #endif

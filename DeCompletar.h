@@ -1,20 +1,21 @@
-#ifndef DECOMPLETAR_H
-#define DECOMPLETAR_H
+#ifndef DECOMPLETAR_H_
+#define DECOMPLETAR_H_
+
 #include "Ejercicio.h"
-#include<iostream>
+#include "string"
+#include "vector"
 
-using namespace std;
-
-class DeCompletar : protected Ejercicio {
+class DeCompletar : public Ejercicio {
+private:
+	std::vector<std::string> solucion;
+	std::string fraseIncompleta;
 public:
 	DeCompletar();
-	DeCompletar(const DeCompletar &arg);
-	~DeCompletar();
-private:
-	string solucion;
-	string fraseIncompleta;
-	//Hacer el set de soluciones
+	DeCompletar(std::string descripcionEj, std::string frase, std::vector<std::string> sol);
+	virtual ~DeCompletar();
+	std::string getProblema();
+	std::vector<std::string> getSolucion();
+	bool resolver(std::vector<std::string> sol);
 };
 
-#endif
-
+#endif /* DECOMPLETAR_H_ */

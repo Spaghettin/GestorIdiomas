@@ -5,13 +5,15 @@
 using namespace std;
 
 class DT_DataPromedioCurso {
-public:
-	DT_DataPromedioCurso();
-	DT_DataPromedioCurso(const DT_DataPromedioCurso &arg);
-	~DT_DataPromedioCurso();
 private:
-	string nombreCurso;
+	std::string nombreCurso;
 	float promedioProgresoCurso;
+public:
+	DT_DataPromedioCurso(std::string nombreC, float promedioProgresoC);
+	virtual ~DT_DataPromedioCurso();
+	std::string getNombreCurso();
+	float getPromedioProgresoCurso();
+	friend std::ostream& operator<<(std::ostream& os, DT_DataPromedioCurso* dataPC);
 };
 
 #endif

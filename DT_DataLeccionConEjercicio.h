@@ -12,8 +12,8 @@ public:
 	DT_DataLeccionConEjercicio(const DT_DataLeccionConEjercicio &arg);
 	~DT_DataLeccionConEjercicio();
 private:
-	string tema;
-	string objetivo;
+	std::string tema;
+	std::string objetivo;
 	set<DT_DataDeCompletar> DeCompletar;
 	set<DT_DataDeTraduccion> DeTraduccion;
 };

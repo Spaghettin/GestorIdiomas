@@ -10,9 +10,9 @@ public:
 	DT_DataDeTraduccion(const DT_DataDeTraduccion &arg);
 	~DT_DataDeTraduccion();
 private:
-	string solucion;
-	string fraseATraducir;
-	string descripcion;
+	std::string solucion;
+	std::string fraseATraducir;
+	std::string descripcion;
 };
 
 #endif

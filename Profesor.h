@@ -1,16 +1,31 @@
 #ifndef PROFESOR_H
 #define PROFESOR_H
 #include "Usuario.h"
-using namespace std;
+#include "iostream"
+#include "DT_DataProfesor.h"
+#include "Integer.h"
+#include "set"
+#include "Idioma.h"
+#include "IKey.h"
+#include "String.h"
+#include "OrderedDictionary.h"
 
 class Profesor : protected Usuario {
+private:
+	std::string nombreInstituto;
+	IDictionary* idiomas;
 public:
 	Profesor();
+	Profesor(DT_DataProfesor* datosProf, std::string nombreInstituto);
 	Profesor(const Profesor &arg);
 	~Profesor();
-private:
-	string nombreInstituto;
+	
+	std::string getnombreInstituto();
+	Profesor* crearP(DT_DataProfesor* datosProfe, std::string nombreInstituto);
+	void listarIdiomas();
+	void seleccionarIdioma(Idioma* idiomaS);
+	friend std::ostream& operator<<(std::ostream& os, Profesor* prof);
+	
 };
 
 #endif
-

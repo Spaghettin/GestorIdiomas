@@ -1,19 +1,28 @@
 #ifndef ESTUDIANTE_H
 #define ESTUDIANTE_H
 #include "Usuario.h"
-#include<iostream>
+#include "date.h"
+#include "iostream"
+#include "DT_DataEstudiante.h"
 
-using namespace std;
 
-class Estudiante {
+class Estudiante : public Usuario {
+private:
+	std::string paisResidencia;
+	date* fechaNacimiento;
 public:
 	Estudiante();
+	Estudiante(DT_DataEstudiante* datosEst);
 	Estudiante(const Estudiante &arg);
 	~Estudiante();
-private:
-	string paisResidencia;
-	// fechaNacimiento;
+	
+	date* getFechaNacimiento() const;
+	std::string getPaisResidencia() const;
+	Estudiante* crearE(DT_DataEstudiante* datosEst);
+	friend std::ostream& operator<<(std::ostream& os, Estudiante* est);
+	
 };
 
 #endif
+	
 

@@ -14,8 +14,8 @@ public:
 	~DT_DataCursoCompleto();
 private:
 	DT_DataCurso curso;
-	string nombreIdioma;
-	string nombreUsuario;
+	std::string nombreIdioma;
+	std::string nombreUsuario;
 	set<DT_DataLeccionConEjercicio> leccion;
 	set<DT_DataEstudianteCurso> estudianteCurso;
 	bool habilitado;

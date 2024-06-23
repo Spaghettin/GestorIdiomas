@@ -1,18 +1,26 @@
-#ifndef EJERCICIO_H
-#define EJERCICIO_H
-#include<iostream>
+#ifndef EJERCICIO_H_
+#define EJERCICIO_H_
 
-using namespace std;
+#include "string"
+#include "vector"
+#include "DT_DataProblemaEjercicio.h"
+#include "ICollectible.h"
 
-class Ejercicio {
+class DT_DataProblemaEjercicio;
+
+class Ejercicio : public ICollectible {
+protected:
+	static int cantInstancias;
+	int idEjercicio;
+	std::string descripcion;
+	
 public:
 	Ejercicio();
-	Ejercicio(const Ejercicio &arg);
-	~Ejercicio();
-private:
-	string descripcion;
-	int idEjerccio;
+	virtual ~Ejercicio();
+	virtual std::string getProblema() = 0;
+	DT_DataProblemaEjercicio* getDataProblema();
+	std::string getDescripcion();
+	int getID();
 };
 
-#endif
-
+#endif /* EJERCICIO_H_ */

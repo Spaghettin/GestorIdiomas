@@ -10,8 +10,8 @@ public:
 	DT_DataInfoEstudiante(const DT_DataInfoEstudiante &arg);
 	~DT_DataInfoEstudiante();
 private:
-	string paisResidencia;
-	date fechaNacimiento;
+	std::string paisResidencia;
+	date* fechaNacimiento;
 };
 
 #endif

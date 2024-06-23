@@ -1,19 +1,38 @@
-#ifndef LECCION_H
-#define LECCION_H
-#include<iostream>
+#ifndef LECCION_H_
+#define LECCION_H_
 
-using namespace std;
+#include "string"
+#include "vector"
+#include "set"
+#include "Ejercicio.h"
+#include "DT_DataLeccion.h"
+#include "IDictionary.h"
 
-class Leccion {
+class DataLeccion;
+class DataProblemaEjercicio;
+
+class Leccion : public ICollectible {
+private:
+	std::string tema;
+	std::string objetivo;
+	int idLeccion;
+	IDictionary* ejercicios;
+	static int cantInstancias;
 public:
 	Leccion();
-	Leccion(const Leccion &arg);
-	~Leccion();
-private:
-	string tema;
-	string objetivo;
-	int idLeccion;
+	Leccion(std::string tema, std::string obj);
+	virtual ~Leccion();
+	
+	std::string getTema();
+	std::string getObjetivo();
+	int getID();
+	int getCantidadEjercicios();
+	Ejercicio* getEjercicio(int idEjercicio);
+	std::set<int> getListaEjercicios();
+	DT_DataLeccion* getDataLeccion();
+	DT_DataProblemaEjercicio* getDataProblemaEjercicio(int idEjercicio);
+	void crearEjercicioDeTraduccion(std::string descripcion, std::string frase, std::string solucion);
+	void crearEjercicioDeCompletar(std::string descripcion, std::string frase, std::vector<std::string> solucion);
 };
 
-#endif
-
+#endif /* LECCION_H_ */

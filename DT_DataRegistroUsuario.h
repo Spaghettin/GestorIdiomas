@@ -10,10 +10,10 @@ public:
 	DT_DataRegistroUsuario(const DT_DataRegistroUsuario &arg);
 	~DT_DataRegistroUsuario();
 private:
-	string nickname;
-	string contrasena;
-	string nombre;
-	string descripcion;
+	std::string nickname;
+	std::string contrasena;
+	std::string nombre;
+	std::string descripcion;
 };
 
 #endif

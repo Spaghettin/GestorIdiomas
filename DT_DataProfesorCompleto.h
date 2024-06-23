@@ -10,10 +10,10 @@ public:
 	DT_DataProfesorCompleto(const DT_DataProfesorCompleto &arg);
 	~DT_DataProfesorCompleto();
 private:
-	string nombre;
-	string nickname;
-	string instituto;
-	set<string> idiomas;
+	std::string nombre;
+	std::string nickname;
+	std::string instituto;
+	set<std::string> idiomas;
 };
 
 #endif

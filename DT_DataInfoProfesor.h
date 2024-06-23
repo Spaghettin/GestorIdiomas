@@ -11,8 +11,8 @@ public:
 	DT_DataInfoProfesor(const DT_DataInfoProfesor &arg);
 	~DT_DataInfoProfesor();
 private:
-	string instituto;
-	set<string> idiomas;
+	std::string instituto;
+	set<std::string> idiomas;
 };
 
 #endif

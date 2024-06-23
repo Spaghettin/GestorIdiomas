@@ -2,18 +2,20 @@
 #define DT_DATALECCION_H
 #include<iostream>
 
-using namespace std;
-
 class DT_DataLeccion {
-public:
-	DT_DataLeccion();
-	DT_DataLeccion(const DT_DataLeccion &arg);
-	~DT_DataLeccion();
 private:
 	int idLeccion;
-	string tema;
-	string objetivo;
+	std::string tema;
+	std::string objetivo;
+public:
+	DT_DataLeccion();
+	DT_DataLeccion(int id, std::string temaL, std::string objL);
+	virtual ~DT_DataLeccion();
+	int getID();
+	std::string getTema();
+	std::string getObjetivo();
+	friend std::ostream& operator<<(std::ostream& os, DT_DataLeccion* lec);
 };
 
-#endif
 
+#endif

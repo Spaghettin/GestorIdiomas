@@ -49,3 +49,14 @@ date* DT_DataEstudiante::getFechaNacimiento() const {
 std::string DT_DataEstudiante::getPaisResidencia() const {
 	return this->paisResidencia;
 }
+
+std::ostream& operator<<(std::ostream& os, DT_DataEstudiante* est) {
+	os  << "\nNickname: " << est->getNickname()
+		<< "\nNombre: " << est->getNombre()
+		<< "\nContrasena: " << est->getContrasena()
+		<< "\nDescripcion: " << est->getDescripcion()
+		<< "\nFecha Nacimiento: " << est->getFechaNacimiento()
+		<< "\nPaisResidencia: " << est->getPaisResidencia();
+	
+	return os;
+}

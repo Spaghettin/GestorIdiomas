@@ -28,6 +28,9 @@ public:
 	std::string getDescripcion() const;
 	date* getFechaNacimiento() const;
 	std::string getPaisResidencia() const;
+	
+	friend std::ostream& operator<<(std::ostream& os, DT_DataEstudiante* est);
+	
 };
 
 #endif

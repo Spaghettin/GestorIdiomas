@@ -18,8 +18,6 @@ public:
 	
 	date* getFechaNacimiento() const;
 	std::string getPaisResidencia() const;
-	Estudiante* crearE(DT_DataEstudiante* datosEst);
-	friend std::ostream& operator<<(std::ostream& os, Estudiante* est);
 	
 };
 

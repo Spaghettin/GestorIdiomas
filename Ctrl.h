@@ -7,18 +7,23 @@
 #include "Profesor.h"
 #include "Estudiante.h"
 #include "Curso.h"
+#include <set>
+#include <string>
 
 using namespace std;
 class Ctrl  : public I_Ctrl{
 public:
 	Ctrl();
 	Ctrl(const Ctrl &arg);
-	~Ctrl();
+	virtual ~Ctrl();
 	
+	void printSet(const std::set<std::string>& mySet); 
 	void crearE(DT_DataEstudiante* DataEst);
 	void crearP(DT_DataProfesor* DataProf, std::string nombreInstituto);
 	set<std::string> listarIdiomas();
-	void seleccionaIdioma(string nombre);
+	void seleccionarIdioma(string nombre);
+	void altaIdioma(string nombreIdioma);
+	
 	set<std::string> listarUsuarios();
 	DT_DataUsuarioGenerico* consultaUsuario(string nickname);
 	set<DT_DataCursoConContador*> muestroCursosDisponibles(string nickncameEst);
@@ -27,7 +32,6 @@ public:
 	set<int> listarEjercicios(string nombreCurso);
 	DT_DataProblemaEjercicio* getProblemaEjercicio(int idEjercicio);
 	bool ingresarSolucion(string solucion);
-	bool altaIdioma(string nombreIdioma);
 	set<std::string> listarProfesores();
 	void seleccionaProfesor(string nicknameProf);
 	void ingesoDatosCurso(DT_DataCurso datosC);
@@ -59,6 +63,7 @@ private:
 	IDictionary* Estudiantes;
 	IDictionary* Idiomas;
 	IDictionary* Cursos;
+	Profesor* profe;
 };
 
 #endif

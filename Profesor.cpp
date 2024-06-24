@@ -10,7 +10,7 @@ Profesor::Profesor(DT_DataProfesor* datosProf, std::string nombreInstituto){
 	this->nickname = datosProf->getNickname();
 	this->descripcion = datosProf->getDescripcion();
 	this->nombreInstituto = nombreInstituto;
-	this->idiomas = new OrderedDictionary();
+	this->Idiomas = new OrderedDictionary();
 }
 
 Profesor::Profesor(const Profesor &arg) {
@@ -29,20 +29,20 @@ Profesor* Profesor::crearP(DT_DataProfesor* datosProfe, std::string nombreInstit
 	return new Profesor(datosProfe, nombreInstituto);
 }
 
-std::ostream& operator<<(std::ostream& os, Profesor* prof) {
-	os  << "\nNickname: " << prof->getNickname()
-		<< "\nNombre: " << prof->getNombre()
-		<< "\nContrasena: " << prof->getContrasena()
-		<< "\nDescripcion: " << prof->getDescripcion()
-		<< "\nNombre Instituto: " << prof->getnombreInstituto();
-	
-	return os;
-}
+//std::ostream& operator<<(std::ostream& os, Profesor* prof) {
+//	os  << "\nNickname: " << prof->getNickname()
+//		<< "\nNombre: " << prof->getNombre()
+//		<< "\nContrasena: " << prof->getContrasena()
+//		<< "\nDescripcion: " << prof->getDescripcion()
+//		<< "\nNombre Instituto: " << prof->getnombreInstituto();
+//	
+//	return os;
+//}
 
 void Profesor::listarIdiomas(){
 	Idioma* idiomas;
 	//std::set<string> setIdiomas;
-	IIterator* it = this->idiomas->getIterator();	//Se crea el iterador para el diccionario idiomas
+	IIterator* it = this->Idiomas->getIterator();	//Se crea el iterador para el diccionario idiomas
 	
 	while(it->hasCurrent()){
 		idiomas = (Idioma*)it->getCurrent();		//Se inicializa el puntero a obj "idiomas" al objeto que esta apuntando el it
@@ -62,5 +62,9 @@ void Profesor::seleccionarIdioma(Idioma* idiomaS){
 	std::string nIdioma = idiomaS->getNombre(); 	//Guardo el string nombre del objeto idioma que recibo por parametros en nIdioma
 	IKey* ik = new String(nIdioma.c_str());     	//Se hace un identificador(key) con el nombre del idioma
 	
-	this->idiomas->add(ik, idiomaS);	       		//Se añade el objeto y el id que lo identifica al diccionario idiomas de profesor
+	this->Idiomas->add(ik, idiomaS);	       		//Se añade el objeto y el id que lo identifica al diccionario idiomas de profesor
+}
+
+IDictionary* Profesor::getidiomas(){
+	return this->Idiomas;
 }

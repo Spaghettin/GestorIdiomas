@@ -1,6 +1,8 @@
 #include<iostream>
 #include "I_Ctrl.h"
 #include "Fabrica.h"
+#include <set>
+#include <string>
 
 //No van
 #include "DT_DataEstudiante.h"
@@ -31,12 +33,12 @@ int main (int argc, char *argv[]) {
 			
 			case 1: {
 				
+				std::string nombre, descripcion, nickname, paisResidencia, contrasena, nombreInstituto;
 				char res;
 				cout<<"Quiere ingresar un estudiante? y/n: ";
 				cin>>res;
 			if(res == 'y'){
 				DT_DataEstudiante* datosEst;
-				std::string nombre, descripcion, nickname, paisResidencia, contrasena;
 				int ano, mes, dia;
 				date* fechaNacimiento;
 				
@@ -64,15 +66,29 @@ int main (int argc, char *argv[]) {
 				
 				con->crearE(datosEst);
 			}else{
-				DT_DataProfesor* datosProf = new DT_DataProfesor("Pedroo", "Pedro", "123", "si");
-				con->crearP(datosProf, "Liceo 1");
+				cout<<"Ingrese nickname del profesor que se ingresa: ";
+				cin>>nickname;
+				cout<<"Ingrese nombre del profesor que se ingresa: ";
+				cin>>nombre;
+				cout<<"Ingrese contrasena del profesor que se ingresa: ";
+				cin>>contrasena;
+				cout<<"Ingrese descripcion del profesor que se ingresa: ";
+				cin>>descripcion;
+				cout<<"Ingrese nombre del instituto en el que el profesor trabaja: ";
+				cin>>nombreInstituto;
+				DT_DataProfesor* datosProf = new DT_DataProfesor(nickname, nombre, contrasena, descripcion);
 				
-				//con->listarIdiomas();
+				con->crearP(datosProf, nombreInstituto);
+				
+				//con->altaIdioma("Frances");
+				//con->altaIdioma("Turco");
+				//con->printSet(con->listarIdiomas());
 				do{
 					string nombre;
 					cout<<"Ingrese nombre del idioma que se especializa: ";
 					cin>>nombre;
-					con->seleccionaIdioma(nombre);
+					//con->seleccionarIdioma(nombre);
+					
 					cout<<"Quiere seguir agregando idiomas? y/n: ";
 					cin>>res;
 				}while(res == 'y');

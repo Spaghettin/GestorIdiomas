@@ -14,7 +14,3 @@ Idioma::~Idioma() {
 std::string Idioma::getNombre() {
 	return this->nombreIdioma;
 }
-
-Idioma* Idioma::altaIdioma(std::string nombreIdioma){
-	return new Idioma(nombreIdioma);
-}

@@ -20,11 +20,11 @@ using namespace std;
 class I_Ctrl {
 public:
 
-	
+	virtual void printSet(const std::set<std::string>& mySet) = 0;
 	virtual void crearE(DT_DataEstudiante* DataEst) = 0;
 	virtual void crearP(DT_DataProfesor* DataProf, std::string nombreInstituto) = 0;
 	virtual set<std::string> listarIdiomas() = 0;
-	virtual void seleccionaIdioma(string nombre) = 0;
+	virtual void seleccionarIdioma(string nombre) = 0;
 	virtual set<std::string> listarUsuarios() = 0;
 	virtual DT_DataUsuarioGenerico* consultaUsuario(string nickname) = 0;
 	virtual set<DT_DataCursoConContador*> muestroCursosDisponibles(string nickncameEst) = 0;
@@ -33,7 +33,7 @@ public:
 	virtual set<int> listarEjercicios(string nombreCurso) = 0;
 	virtual DT_DataProblemaEjercicio* getProblemaEjercicio(int idEjercicio) = 0;
 	virtual bool ingresarSolucion(string solucion) = 0;
-	virtual bool altaIdioma(string nombreIdioma) = 0;
+	virtual void altaIdioma(string nombreIdioma) = 0;
 	virtual set<std::string> listarProfesores() = 0;
 	virtual void seleccionaProfesor(string nicknameProf) = 0;
 	virtual void ingesoDatosCurso(DT_DataCurso datosC) = 0;

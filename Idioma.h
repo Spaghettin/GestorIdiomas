@@ -13,7 +13,6 @@ public:
 	Idioma(std::string nombreIdioma);
 	virtual ~Idioma();
 	std::string getNombre();
-	Idioma* altaIdioma(std::string nombreIdioma);
 };
 
 #endif /* IDIOMA_H_ */

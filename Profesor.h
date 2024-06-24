@@ -10,10 +10,10 @@
 #include "String.h"
 #include "OrderedDictionary.h"
 
-class Profesor : protected Usuario {
+class Profesor : public Usuario {
 private:
 	std::string nombreInstituto;
-	IDictionary* idiomas;
+	IDictionary* Idiomas;
 public:
 	Profesor();
 	Profesor(DT_DataProfesor* datosProf, std::string nombreInstituto);
@@ -24,7 +24,8 @@ public:
 	Profesor* crearP(DT_DataProfesor* datosProfe, std::string nombreInstituto);
 	void listarIdiomas();
 	void seleccionarIdioma(Idioma* idiomaS);
-	friend std::ostream& operator<<(std::ostream& os, Profesor* prof);
+	//friend std::ostream& operator<<(std::ostream& os, Profesor* prof);
+	IDictionary* getidiomas();
 	
 };
 

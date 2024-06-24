@@ -30,17 +30,3 @@ std::string Estudiante::getPaisResidencia() const {
 	return this->paisResidencia;
 }
 
-Estudiante* Estudiante::crearE(DT_DataEstudiante* datosEst){
-	return new Estudiante(datosEst);
-}
-
-std::ostream& operator<<(std::ostream& os, Estudiante* est) {
-	os  << "\nNickname: " << est->getNickname()
-		<< "\nNombre: " << est->getNombre()
-		<< "\nContrasena: " << est->getContrasena()
-		<< "\nDescripcion: " << est->getDescripcion()
-		<< "\nFecha Nacimiento: " << est->getFechaNacimiento()
-		<< "\nPaisResidencia: " << est->getPaisResidencia();
-	
-	return os;
-}
